@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background: #765a66; }
+
+.myPlayer {
+  height: 500px;
+  width: 350px;
+  margin: 20px auto 0 auto;
+  -moz-box-shadow: 0px -5px 10px -1px #424305, 0px 6px 10px -1px #424305, 0px 0px 20px 5px #b1ca16;
+  -ms-box-shadow: 0px -5px 10px -1px #424305, 0px 6px 10px -1px #424305, 0px 0px 20px 5px #b1ca16;
+  -o-box-shadow: 0px -5px 10px -1px #424305, 0px 6px 10px -1px #424305, 0px 0px 20px 5px #b1ca16;
+  -webkit-box-shadow: 0px -5px 10px -1px #424305, 0px 6px 10px -1px #424305, 0px 0px 20px 5px #b1ca16;
+  box-shadow: 0px -5px 10px -1px #424305, 0px 6px 10px -1px #424305, 0px 0px 20px 5px #b1ca16; }
+
+.headerOfPlayer {
+  height: 100px;
+  width: 100%;
+  background-color: azure; }
+  .headerOfPlayer .headMuv {
+    width: 100%;
+    height: 20px;
+    background-color: #5c575c;
+    border-bottom: 1px solid black; }
+  .headerOfPlayer .nameOfTrek {
+    width: 100%;
+    height: 30px;
+    background-color: #5c575c;
+    border-bottom: 1px solid black; }
+    .headerOfPlayer .nameOfTrek p {
+      padding-top: 6px;
+      color: #f9fa60;
+      word-wrap: normal;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+  .headerOfPlayer .navigation {
+    width: 100%;
+    height: 50px;
+    background-color: #5c575c;
+    border-bottom: 1px solid black; }
+    .headerOfPlayer .navigation .progress, .headerOfPlayer .navigation .pause, .headerOfPlayer .navigation .previous, .headerOfPlayer .navigation .next, .headerOfPlayer .navigation .list, .headerOfPlayer .navigation .volume, .headerOfPlayer .navigation .play, .headerOfPlayer .navigation .notPlay {
+      position: relative;
+      display: inline-block;
+      vertical-align: top; }
+    .headerOfPlayer .navigation .progress, .headerOfPlayer .navigation .pause, .headerOfPlayer .navigation .previous, .headerOfPlayer .navigation .next, .headerOfPlayer .navigation .list, .headerOfPlayer .navigation .volume, .headerOfPlayer .navigation .play {
+      cursor: pointer;
+      border: 1px solid rgba(249, 250, 96, 0.9); }
+      .headerOfPlayer .navigation .progress:hover, .headerOfPlayer .navigation .pause:hover, .headerOfPlayer .navigation .previous:hover, .headerOfPlayer .navigation .next:hover, .headerOfPlayer .navigation .list:hover, .headerOfPlayer .navigation .volume:hover, .headerOfPlayer .navigation .play:hover {
+        background: -moz-radial-gradient(center, ellipse cover, rgba(230, 240, 163, 0) 40%, rgba(210, 230, 56, 0.47) 80%, #daed10 100%);
+        background: -webkit-radial-gradient(center, ellipse cover, rgba(230, 240, 163, 0) 40%, rgba(210, 230, 56, 0.47) 80%, #daed10 100%);
+        background: radial-gradient(ellipse at center, rgba(230, 240, 163, 0) 40%, rgba(210, 230, 56, 0.47) 80%, #daed10 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e6f0a3', endColorstr='#daed10',GradientType=1 ); }
+    .headerOfPlayer .navigation .play {
+      height: 47px;
+      width: 47px;
+      border-radius: 50%; }
+      .headerOfPlayer .navigation .play:before {
+        top: 14px;
+        left: 16px;
+        content: " ";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-left: 20px solid rgba(249, 250, 96, 0.5);
+        border-bottom: 10px solid transparent; }
+    .headerOfPlayer .navigation .notPlay {
+      width: 280px; }
+      .headerOfPlayer .navigation .notPlay .progress {
+        height: 10px;
+        width: 280px;
+        margin-left: 8px;
+        margin-top: 3px;
+        border-radius: 5px; }
+      .headerOfPlayer .navigation .notPlay .pause, .headerOfPlayer .navigation .notPlay .previous, .headerOfPlayer .navigation .notPlay .next, .headerOfPlayer .navigation .notPlay .list {
+        height: 20px;
+        width: 20px;
+        margin: 6px 0 0 10px;
+        cursor: pointer;
+        border-radius: 20px; }
+      .headerOfPlayer .navigation .notPlay .pause:before {
+        top: 5px;
+        left: 6px;
+        content: " ";
+        position: absolute;
+        width: 3px;
+        height: 11px;
+        background-color: rgba(249, 250, 96, 0.5);
+        border-radius: 2px; }
+      .headerOfPlayer .navigation .notPlay .pause:after {
+        top: 5px;
+        left: 11px;
+        content: " ";
+        position: absolute;
+        width: 3px;
+        height: 11px;
+        background-color: rgba(249, 250, 96, 0.5);
+        border-radius: 2px; }
+      .headerOfPlayer .navigation .notPlay .previous:before {
+        top: 5px;
+        left: 2px;
+        content: " ";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-right: 10px solid rgba(249, 250, 96, 0.5);
+        border-bottom: 5px solid transparent; }
+      .headerOfPlayer .navigation .notPlay .previous:after {
+        top: 5px;
+        left: 14px;
+        content: " ";
+        position: absolute;
+        width: 3px;
+        height: 10px;
+        background-color: rgba(249, 250, 96, 0.5);
+        border-radius: 2px; }
+      .headerOfPlayer .navigation .notPlay .next:after {
+        top: 5px;
+        left: 8px;
+        content: " ";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-top: 5px solid transparent;
+        border-left: 10px solid rgba(249, 250, 96, 0.5);
+        border-bottom: 5px solid transparent; }
+      .headerOfPlayer .navigation .notPlay .next:before {
+        top: 5px;
+        left: 3px;
+        content: " ";
+        position: absolute;
+        width: 3px;
+        height: 10px;
+        background-color: rgba(249, 250, 96, 0.5);
+        border-radius: 2px; }
+      .headerOfPlayer .navigation .notPlay .list p {
+        padding-top: 1px;
+        color: rgba(249, 250, 96, 0.5);
+        text-align: center; }
+      .headerOfPlayer .navigation .notPlay .volume {
+        height: 10px;
+        width: 120px;
+        margin: 10px 0 0 10px;
+        border-radius: 5px; }
+
+.footerOfPlayer {
+  height: 400px;
+  width: 100%;
+  background-color: #b1fff5;
+  overflow: hidden; }
+  .footerOfPlayer .mysound {
+    display: block;
+    position: relative;
+    top: 0; }
+    .footerOfPlayer .mysound .sound {
+      width: 100%;
+      height: 20px;
+      border-bottom: 1px solid #b1ca16; }
+      .footerOfPlayer .mysound .sound .name, .footerOfPlayer .mysound .sound .number, .footerOfPlayer .mysound .sound .time {
+        display: inline-block;
+        vertical-align: top; }
+      .footerOfPlayer .mysound .sound .number {
+        height: 100%;
+        width: 40px;
+        border-right: 1px solid #b1ca16; }
+      .footerOfPlayer .mysound .sound .name {
+        height: 100%;
+        width: 250px;
+        border-right: 1px solid #b1ca16; }
+      .footerOfPlayer .mysound .sound .time {
+        height: 100%;
+        width: 47px; }
+      .footerOfPlayer .mysound .sound:hover {
+        background-color: rgba(249, 250, 96, 0.5);
+        cursor: pointer; }
+    .footerOfPlayer .mysound p {
+      word-wrap: normal;
+      text-align: center;
+      cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      padding: 0 5px 0 5px;
+      text-overflow: ellipsis; }
+
+.volumeProgress, .musicProgress {
+  position: relative;
+  height: 100%;
+  background-color: #b1ca16;
+  border-radius: 5px; }
+
+/*# sourceMappingURL=main.css.map */
