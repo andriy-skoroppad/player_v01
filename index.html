@@ -26,7 +26,7 @@
                 <div class="pause" data-ng-click="pause()"></div>
                 <div class="previous" data-ng-click="preSound()"></div>
                 <div class="next" data-ng-click="nextSound()"></div>
-                <div class="list"> <p>C</p></div>
+                <div class="list" data-ng-click="playlistShow()"> <p>C</p></div>
                 <div class="volume">
                     <div class="volumeProgress" style="width: {{volumeProgress}}%"></div>
                 </div>
@@ -35,7 +35,7 @@
         </div>
 
     </div>
-    <div class="footerOfPlayer" >
+    <div class="footerOfPlayer" data-ng-show="playListVisible">
         <div class="mysound">
             <div class="sound" data-ng-repeat="sound in playlist" data-ng-click="selectSound(sound, $index)">
                 <div class="number">

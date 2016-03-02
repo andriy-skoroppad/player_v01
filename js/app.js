@@ -20,6 +20,11 @@ function myPlayerController($scope){
     $scope.musicProgress = 0;
     $scope.volumeProgress = 50;
     var indexCarentSong = 0;
+    $scope.playListVisible = true;
+    $scope.playlistShow = function (){
+        $scope.playListVisible = !$scope.playListVisible;
+
+    }
 
     $scope.nextSound = function (){
         try {
