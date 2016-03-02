@@ -177,6 +177,8 @@ body {
       .footerOfPlayer .mysound .sound:hover {
         background-color: rgba(249, 250, 96, 0.5);
         cursor: pointer; }
+    .footerOfPlayer .mysound .active {
+      background-color: rgba(249, 250, 96, 0.2); }
     .footerOfPlayer .mysound p {
       word-wrap: normal;
       text-align: center;

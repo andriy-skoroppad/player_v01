@@ -16,8 +16,9 @@ function myPlayerController($scope){
     var volume = document.getElementsByClassName('volume')[0];
     $scope.musicProgress = 0;
     $scope.volumeProgress = 50;
-    var indexCarentSong = 0;
+    $scope.indexCarentSong = 0;
     $scope.playListVisible = true;
+    var isExistPlaylist = false;
     $scope.playlistShow = function (){
         $scope.playListVisible = !$scope.playListVisible;
 
@@ -25,13 +26,13 @@ function myPlayerController($scope){
 
     $scope.nextSound = function (){
         try {
-            if(indexCarentSong + 1 < $scope.playlist.length){
-                indexCarentSong += 1;
+            if($scope.indexCarentSong + 1 < $scope.playlist.length){
+                $scope.indexCarentSong += 1;
             } else {
-                indexCarentSong = 0;
+                $scope.indexCarentSong = 0;
             };
-            $scope.selectSound($scope.playlist[indexCarentSong], indexCarentSong);
-            //$scope.player.src = $scope.playlist[indexCarentSong].url;
+            $scope.selectSound($scope.playlist[$scope.indexCarentSong], $scope.indexCarentSong);
+            //$scope.player.src = $scope.playlist[$scope.indexCarentSong].url;
         } catch (err) {
             console.info("no file in list" + err);
         };
@@ -41,13 +42,13 @@ function myPlayerController($scope){
 
     $scope.preSound = function (){
         try {
-            if (indexCarentSong - 1 > -1) {
-                indexCarentSong -= 1;
+            if ($scope.indexCarentSong - 1 > -1) {
+                $scope.indexCarentSong -= 1;
             } else {
-                indexCarentSong = $scope.playlist.length - 1;
+                $scope.indexCarentSong = $scope.playlist.length - 1;
             }
             ;
-            $scope.selectSound($scope.playlist[indexCarentSong], indexCarentSong);
+            $scope.selectSound($scope.playlist[$scope.indexCarentSong], $scope.indexCarentSong);
         } catch (err) {
             console.info("no file in list" + err);
         };
@@ -66,7 +67,7 @@ function myPlayerController($scope){
     $scope.selectSound = function (object, index){
         $scope.player.src = object.url;
         $scope.sound = object.soundName;
-        indexCarentSong = index;
+        $scope.indexCarentSong = index;
         $scope.player.volume = $scope.volumeProgress/100;
     }
 
@@ -124,6 +125,10 @@ function myPlayerController($scope){
         function addToPlaylist(){
             if(mySounds.length == myNextIndex){
                 $scope.$digest();
+                if ( !isExistPlaylist ){
+                    $scope.selectSound($scope.playlist[$scope.indexCarentSong], $scope.indexCarentSong);
+                    isExistPlaylist = true;
+                }
                 return;
             }
             var reader = new FileReader();

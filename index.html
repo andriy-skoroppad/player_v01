@@ -37,7 +37,7 @@
     </div>
     <div class="footerOfPlayer" data-ng-show="playListVisible">
         <div class="mysound">
-            <div class="sound" data-ng-repeat="sound in playlist" data-ng-click="selectSound(sound, $index)">
+            <div class="sound" data-ng-repeat="sound in playlist" data-ng-class="$index == indexCarentSong ? 'active' : ''" data-ng-click="selectSound(sound, $index)">
                 <div class="number">
                     <p>{{$index + 1}}</p>
                 </div>
