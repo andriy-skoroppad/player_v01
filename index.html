@@ -9,10 +9,11 @@
   
 </head>
 
-<body>
+<body data-ng-keydown="key($event)" data-ng-controller="bodyController">
 
-<div class="myPlayer" data-ng-controller="myPlayerController">
-    <div class="headerOfPlayer">
+<div class="myPlayer" data-ng-controller="myPlayerController" >
+
+    <div class="headerOfPlayer" >
         <div class="headMuv"></div>
         <div class="nameOfTrek">
             <p>{{sound}}</p>

@@ -1,12 +1,21 @@
 var app = angular.module('blog', []);
 app.controller('myPlayerController',['$scope', myPlayerController]);
+app.controller('bodyController',['$scope', bodyController]);
 
+function bodyController($scope){
+    $scope.key = function (event) {
+        console.log(event.keyCode);
+        $scope.send = event.keyCode;
+    };
+    $scope.send = null;
+};
 
 function myPlayerController($scope){
 
     function chekLength(streng){
         return streng
     };
+
 
     $scope.sound = 'Нема музики';
     $scope.player = document.getElementById('myaudio');
@@ -35,6 +44,7 @@ function myPlayerController($scope){
             //$scope.player.src = $scope.playlist[$scope.indexCarentSong].url;
         } catch (err) {
             console.info("no file in list" + err);
+            console.log($scope.send);
         };
 
 
