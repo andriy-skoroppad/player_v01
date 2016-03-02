@@ -148,10 +148,10 @@ body {
         border-radius: 5px; }
 
 .footerOfPlayer {
-  height: 400px;
   width: 100%;
   background-color: #b1fff5;
-  overflow: hidden; }
+  overflow: hidden;
+  padding-bottom: 50px; }
   .footerOfPlayer .mysound {
     display: block;
     position: relative;

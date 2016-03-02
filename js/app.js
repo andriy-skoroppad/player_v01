@@ -5,9 +5,6 @@ app.controller('myPlayerController',['$scope', myPlayerController]);
 function myPlayerController($scope){
 
     function chekLength(streng){
-        //if(streng.length > 30){
-        //    streng = streng.substring(0,30);
-        //};
         return streng
     };
 
@@ -37,7 +34,7 @@ function myPlayerController($scope){
             //$scope.player.src = $scope.playlist[indexCarentSong].url;
         } catch (err) {
             console.info("no file in list" + err);
-        }
+        };
 
 
     };
@@ -53,7 +50,7 @@ function myPlayerController($scope){
             $scope.selectSound($scope.playlist[indexCarentSong], indexCarentSong);
         } catch (err) {
             console.info("no file in list" + err);
-        }
+        };
     };
 
     $scope.play = function(){
@@ -76,7 +73,6 @@ function myPlayerController($scope){
     $scope.player.addEventListener("timeupdate", function(){
         $scope.musicProgress = 100 * Math.round($scope.player.currentTime) / Math.round( $scope.player.duration);
         if($scope.musicProgress >= 100){
-            console.log($scope.musicProgress);
             $scope.nextSound();
         };
         $scope.$digest();
@@ -96,7 +92,6 @@ function myPlayerController($scope){
             }
             $scope.volumeProgress = e.offsetX * 100 / volume.clientWidth;
             $scope.player.volume = $scope.volumeProgress/100;
-            console.log(volume.clientWidth, e.offsetX, $scope.volumeProgress)
             $scope.$digest();
         }
         catch (err) {
@@ -128,7 +123,6 @@ function myPlayerController($scope){
         var myNextIndex = 0;
         function addToPlaylist(){
             if(mySounds.length == myNextIndex){
-                console.log($scope.playlist);
                 $scope.$digest();
                 return;
             }
@@ -157,7 +151,7 @@ function myPlayerController($scope){
         e.preventDefault();
     };
     var element = document.getElementsByClassName('footerOfPlayer')[0]; // узел, на который будем "сбрасывать" файлы
-    console.log(element);
+
     element.addEventListener("dragenter", drg, false); // событие при наведении указателя
     element.addEventListener("dragover", drg, false); // событие при покидании мыши области элемента
     element.addEventListener("drop", function(e){ // непосредственно "сброс"
@@ -166,7 +160,7 @@ function myPlayerController($scope){
         e.preventDefault();
 
         //e.dataTransfer.files // тот же список файлов, что и у инпута
-        console.log(e.dataTransfer.files);
+
         read(e.dataTransfer.files);
     }, false);
 
@@ -179,7 +173,6 @@ function myPlayerController($scope){
     };
 
     $scope.dropStart = function (){
-        console.log('dropStart', $scope.sound);
 
     }
 
