@@ -1,5 +1,5 @@
 var app = angular.module('blog', []);
-app.controller('myPlayerController',['$scope', myPlayerController]);
+app.controller('myPlayerController',['$scope', '$q','$http', '$httpBackend', myPlayerController]);
 app.controller('bodyController',['$scope', bodyController]);
 
 function bodyController($scope){
@@ -10,7 +10,7 @@ function bodyController($scope){
     $scope.send = null;
 };
 
-function myPlayerController($scope){
+function myPlayerController($scope, $q, $http, $httpBackend){
 
     function chekLength(streng){
         return streng
@@ -189,7 +189,29 @@ function myPlayerController($scope){
 
     $scope.dropStart = function (){
 
-    }
+    };
+
+    //-----------------promise-------------------
+    $http.get('http/my.txt').then(function(response){
+        console.log(response.data);
+    });
+
+
+
+    var first  = $http.get("http/my.txt");
+    var second = $http.get("http/my.txt");
+    var third  = $http.get("http/my.txt");
+
+    $q.all([first, second, third]).then(function(result) {
+            var tmp = [];
+            angular.forEach(result, function(response) {
+            tmp.push(response.data);
+        });
+        return tmp;
+    }).then(function(tmpResult) {
+        console.log(tmpResult);
+    });
+    //--------------------------------------------------
 
 
 }
