@@ -226,8 +226,8 @@ function myPlayerController($scope, $q, $http, $httpBackend, $timeout){
     $scope.startDeferredTimer(0);
 
     var first  = $http.get("http/my.txt");
-    var second = $http.get("http/my.txt");
-    var third  = $http.get("http/my.txt");
+    var second = $http.get("http/my2.txt");
+    var third  = $http.get("http/my3.txt");
 
     $q.all([first, second, third]).then(function(result) {
             var tmp = [];
@@ -237,7 +237,7 @@ function myPlayerController($scope, $q, $http, $httpBackend, $timeout){
         return tmp;
     }).then(function(tmpResult) {
         console.log(tmpResult);
-        return "Oll good";
+        return "All good";
     }).then(function(tmpResult){
         console.log(tmpResult);
     });
