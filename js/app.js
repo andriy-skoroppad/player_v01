@@ -1,5 +1,5 @@
 var app = angular.module('blog', []);
-app.controller('myPlayerController',['$scope', '$q','$http', '$httpBackend', myPlayerController]);
+app.controller('myPlayerController',['$scope', '$q','$http', '$httpBackend', '$timeout', myPlayerController]);
 app.controller('bodyController',['$scope', bodyController]);
 
 function bodyController($scope){
@@ -10,7 +10,7 @@ function bodyController($scope){
     $scope.send = null;
 };
 
-function myPlayerController($scope, $q, $http, $httpBackend){
+function myPlayerController($scope, $q, $http, $httpBackend, $timeout){
 
     function chekLength(streng){
         return streng
@@ -196,7 +196,34 @@ function myPlayerController($scope, $q, $http, $httpBackend){
         console.log(response.data);
     });
 
+    function deferredTimer(success) {
+    var deferred = $q.defer();
 
+    $timeout(function() {
+        if (success) {
+          deferred.resolve({ message: "This is great!" });
+        } else {
+          deferred.reject({ message: "Really bad" });
+        }
+      }, 1000);
+    
+      return deferred.promise;
+    };
+    $scope.startDeferredTimer = function(success) {
+        deferredTimer(success).then(
+        function(data) {
+            $scope.deferredTimerResult = "Successfully finished: " +
+            data.message;
+            console.log($scope.deferredTimerResult);
+        },
+        function(data) {
+            $scope.deferredTimerResult = "Failed: " + data.message;
+            console.log($scope.deferredTimerResult);
+        }
+      );
+    };
+
+    $scope.startDeferredTimer(0);
 
     var first  = $http.get("http/my.txt");
     var second = $http.get("http/my.txt");
@@ -209,6 +236,9 @@ function myPlayerController($scope, $q, $http, $httpBackend){
         });
         return tmp;
     }).then(function(tmpResult) {
+        console.log(tmpResult);
+        return "Oll good";
+    }).then(function(tmpResult){
         console.log(tmpResult);
     });
     //--------------------------------------------------
