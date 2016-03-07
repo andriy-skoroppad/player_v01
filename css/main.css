@@ -194,4 +194,17 @@ body {
   background-color: #b1ca16;
   border-radius: 5px; }
 
+.scroll {
+  display: block;
+  position: relative;
+  background: white;
+  overflow-x: scroll;
+  height: 200px;
+  width: 150px; }
+  .scroll .insideBlock {
+    height: 50px;
+    width: 90%;
+    background: red;
+    margin-top: 20px; }
+
 /*# sourceMappingURL=main.css.map */

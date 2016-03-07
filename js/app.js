@@ -244,6 +244,8 @@ function myPlayerController($scope, $q, $http, $httpBackend, $timeout){
     //--------------------------------------------------
 
 
-}
+};
+
+
 
 
