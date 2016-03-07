@@ -252,16 +252,18 @@ $(document).ready(function(){
     timeData.innerHTML = "no data";
 //console.log($(".insideBlock").get(4).getAttribute("data-time"));
 
-    $(".scroll").on("scroll", function(){
-        for(i = 0; i < $(".insideBlock").length ; i++){
+    function getTimeData(){
+        for(var i = 0; i < $(".insideBlock").length ; i++){
 
-            if($(".insideBlock").get(i).offsetTop  < myScroll.scrollTop + 20 && $(".insideBlock").get(i).offsetTop  > myScroll.scrollTop - $(".insideBlock").get(i).offsetHeight  ){
+            if($(".insideBlock").get(i).offsetTop  < myScroll.scrollTop + 21 && $(".insideBlock").get(i).offsetTop  > myScroll.scrollTop - $(".insideBlock").get(i).offsetHeight  ){
                 timeData.innerHTML = $(".insideBlock").get(i).getAttribute("data-time");
-            }
-        }
+            };
+        };
+    };
 
-        //console.log($(".insideBlock").get(3).offsetTop, myScroll.scrollTop);
-    })
+    getTimeData();
+
+    $(".scroll").on("scroll", getTimeData);
 
 });
 
