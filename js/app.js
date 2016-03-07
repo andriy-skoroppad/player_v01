@@ -265,6 +265,21 @@ $(document).ready(function(){
 
     $(".scroll").on("scroll", getTimeData);
 
+    function parentChack(elem, classname){
+        var elem2 = elem;
+        if(elem2.className == classname)return true;
+        for (; elem2.parentElement.tagName != 'BODY'; ) {
+            if(elem2.parentElement.className == classname){return true;};
+            elem2 = elem2.parentElement;
+        };
+        return false;
+    };
+
+    function handler( event ) {
+        console.log(parentChack(event.target, "scroll"));
+
+    };
+    $(document).on("click", handler);
 });
 
 
