@@ -246,6 +246,21 @@ function myPlayerController($scope, $q, $http, $httpBackend, $timeout){
 
 };
 
+$(document).ready(function(){
+    var myScroll = $(".scroll").get(0);
 
+
+    $(".scroll").on("scroll", function(){
+        for(i = 0; i < $(".insideBlock").length ; i++){
+
+            if($(".insideBlock").get(i).offsetTop  < myScroll.scrollTop + 20 && $(".insideBlock").get(i).offsetTop  > myScroll.scrollTop - $(".insideBlock").get(i).offsetHeight  ){
+                console.log(i + 1);
+            }
+        }
+
+        //console.log($(".insideBlock").get(3).offsetTop, myScroll.scrollTop);
+    })
+
+});
 
 
