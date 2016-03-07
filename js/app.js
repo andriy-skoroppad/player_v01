@@ -248,13 +248,15 @@ function myPlayerController($scope, $q, $http, $httpBackend, $timeout){
 
 $(document).ready(function(){
     var myScroll = $(".scroll").get(0);
-
+    var timeData = $(".timeData").get(0);
+    timeData.innerHTML = "no data";
+//console.log($(".insideBlock").get(4).getAttribute("data-time"));
 
     $(".scroll").on("scroll", function(){
         for(i = 0; i < $(".insideBlock").length ; i++){
 
             if($(".insideBlock").get(i).offsetTop  < myScroll.scrollTop + 20 && $(".insideBlock").get(i).offsetTop  > myScroll.scrollTop - $(".insideBlock").get(i).offsetHeight  ){
-                console.log(i + 1);
+                timeData.innerHTML = $(".insideBlock").get(i).getAttribute("data-time");
             }
         }
 
