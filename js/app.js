@@ -1,3 +1,4 @@
+"use strict";
 var app = angular.module('blog', []);
 app.controller('myPlayerController',['$scope', '$q','$http', '$httpBackend', '$timeout', myPlayerController]);
 app.controller('bodyController',['$scope', bodyController]);
@@ -268,11 +269,17 @@ $(document).ready(function(){
     function parentChack(elem, classname){
         var elem2 = elem;
         if(elem2.className == classname)return true;
-        for (; elem2.parentElement.tagName != 'BODY'; ) {
-            if(elem2.parentElement.className == classname){return true;};
-            elem2 = elem2.parentElement;
+        try{
+            for (; elem2.parentElement.tagName != 'BODY'; ) {
+                if(elem2.parentElement.className == classname){return true;};
+                elem2 = elem2.parentElement;
+            };
+            return false;
+        }
+        catch(er) {
+            return false;
         };
-        return false;
+
     };
 
     function handler( event ) {
@@ -282,4 +289,34 @@ $(document).ready(function(){
     $(document).on("click", handler);
 });
 
+const constanta = 10;
+try {
+    constanta = 52;
+}
+catch(er) {
+    console.info(" info can not chang const element");
+    console.warn(" warn can not chang const element")
+};
+console.log(constanta);
+
+var funk1 = [1, 2, 3].map(function (x) {
+    return x + 2;
+});
+console.log(funk1);
+
+var funk2 = [1, 2, 3].map( (x) => x * x );
+console.log(funk2);
+
+function f (a , b) {
+    for(let i = 0; i < arguments.length; i++){//при var передається змінна i за межі (let не передає)
+        console.log(i + " аргумент функції f ()-> " + arguments[i] );
+    };
+};
+f(1,2, "df");
+
+var first = 123, second = 5, therd = 'fdddd';
+console.log(`This is ${first} and this is second ${second} ,  ${therd}.`);
+var list = [1, 10, 5];
+//var [aqs, ds, dfww] = list;
+//console.log('obgect', aqs, ds, dfww);
 
