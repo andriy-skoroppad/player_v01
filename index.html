@@ -52,6 +52,7 @@
                 </div>
             </div>
         </div>
+        <a id="dataEnter" href="" download="playlist.json" ng-mousedown="savePlaylistToFile()">playlist.json</a>
     </div>
     <audio data-ng-show="false" src="" id="myaudio" controls autoplay>
         Тег audio не поддерживается вашим браузером.
@@ -75,13 +76,13 @@
     <div class="insideBlock" data-time="13">13</div>
 
 </div>
+<input type="text" ng-model="coment.name"></input><input type="text" ng-model="coment.coments"></input>
+
 <div class="test">
     <div class="comentu">
         <div class="coment">
-            <div class="name"><a href="#">Інокентий  mather faker</a></div>
-            <div class="comentar"><p><span>Вася ти паску посвятив а то я ща
-                тобі вліплю за таку непанятну тєму бла бла бла бла бла бла
-                юлаавтпа валоаовл валопт лваоо</span></p></div>
+            <div class="name"><a href="#">Інокентий {{coment.name}}</a></div>
+            <div class="comentar"><p><span>{{coment.coments}}</span></p></div>
 
         </div>
         <div class="data">
@@ -89,7 +90,6 @@
         </div>
     </div>
 </div>
-<div id="dataEnter"></div>
 </body>
 
 </html>

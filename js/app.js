@@ -5,7 +5,7 @@ app.controller('bodyController',['$scope', bodyController]);
 
 function bodyController($scope){
     $scope.key = function (event) {
-        console.log(event.keyCode);
+        // console.log(event.keyCode);
         $scope.send = event.keyCode;
     };
     $scope.send = null;
@@ -16,6 +16,16 @@ function myPlayerController($scope, $q, $http, $httpBackend, $timeout){
     function chekLength(streng){
         return streng
     };
+
+    $scope.savePlaylistToFile = function (){
+        var sendToFile = [$scope.musicProgress, $scope.volumeProgress, $scope.indexCarentSong, $scope.playListVisible, $scope.sound];
+        var text = JSON.stringify(sendToFile, "", 4);
+        console.log(text);
+        var dataEnter = document.getElementById("dataEnter");
+        console.log('click');
+        dataEnter.href = 'data:text/plain;charset=utf-8,%EF%BB%BF' + encodeURIComponent(text); 
+    }
+
 
 
     $scope.sound = 'Нема музики';
@@ -249,26 +259,31 @@ function myPlayerController($scope, $q, $http, $httpBackend, $timeout){
 
 $(document).ready(function(){
 
-
-    var text = 'как записать строку в файл ".txt" с помощью js?';
-    var dataEnter = document.getElementById("dataEnter");
-    console.log(dataEnter);
-    dataEnter.innerHTML = '<a href="data:text/plain;charset=utf-8,%EF%BB%BF' + encodeURIComponent(text) + '" download="text.gbg">text.txt</a>';
+//------------------------------add dounload file from js----------------------------------------------
+    // var text = 'как Записать строку в файл ".txt" с помощью js?';
+    // var dataEnter = document.getElementById("dataEnter");
+    // console.log(dataEnter);
+    // dataEnter.innerHTML = '<a href="data:text/plain;charset=utf-8,%EF%BB%BF' + encodeURIComponent(text) + '" download="text.gbg">text.txt</a>';
     // document.write(
     //     '<a href="data:text/plain;charset=utf-8,%EF%BB%BF' + encodeURIComponent(text) + '" download="text.txt">text.txt</a>'
     // )
-
+//-----------------------------------------------------------------------------------------------------
     var myScroll = $(".scroll").get(0);
     var timeData = $(".timeData").get(0);
     timeData.innerHTML = "no data";
 //console.log($(".insideBlock").get(4).getAttribute("data-time"));
 
     function getTimeData(){
+        
         for(var i = 0; i < $(".insideBlock").length ; i++){
 
             if($(".insideBlock").get(i).offsetTop  < myScroll.scrollTop + 21 && $(".insideBlock").get(i).offsetTop  > myScroll.scrollTop - $(".insideBlock").get(i).offsetHeight  ){
-                timeData.innerHTML = $(".insideBlock").get(i).getAttribute("data-time");
+                var numer = $(".insideBlock").get(i).getAttribute("data-time");
+                timeData.innerHTML = numer;
+                localStorage.setItem('timeData', numer);//присвоєння даних до стореджа змінна timeData
             };
+
+            console.log('localStorage', localStorage.timeData);//глобальний сторедж між доменними сторінками витягнення даних зі змінної timeData
         };
     };
 
@@ -294,6 +309,7 @@ $(document).ready(function(){
 
     function handler( event ) {
         console.log(parentChack(event.target, "scroll"));
+        console.log('get data from storeg->>', localStorage.timeData);//глобальний сторедж між доменними сторінками витягнення даних зі змінної timeData
 
     };
     $(document).on("click", handler);
