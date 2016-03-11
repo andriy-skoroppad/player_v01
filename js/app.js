@@ -248,6 +248,16 @@ function myPlayerController($scope, $q, $http, $httpBackend, $timeout){
 };
 
 $(document).ready(function(){
+
+
+    var text = 'как записать строку в файл ".txt" с помощью js?';
+    var dataEnter = document.getElementById("dataEnter");
+    console.log(dataEnter);
+    dataEnter.innerHTML = '<a href="data:text/plain;charset=utf-8,%EF%BB%BF' + encodeURIComponent(text) + '" download="text.gbg">text.txt</a>';
+    // document.write(
+    //     '<a href="data:text/plain;charset=utf-8,%EF%BB%BF' + encodeURIComponent(text) + '" download="text.txt">text.txt</a>'
+    // )
+
     var myScroll = $(".scroll").get(0);
     var timeData = $(".timeData").get(0);
     timeData.innerHTML = "no data";
@@ -319,4 +329,9 @@ console.log(`This is ${first} and this is second ${second} ,  ${therd}.`);
 var list = [1, 10, 5];
 //var [aqs, ds, dfww] = list;
 //console.log('obgect', aqs, ds, dfww);
+
+
+
+
+
 
