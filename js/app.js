@@ -282,9 +282,11 @@ $(document).ready(function(){
             if($(".insideBlock").get(i).offsetTop  < myScroll.scrollTop + 21 && $(".insideBlock").get(i).offsetTop  > myScroll.scrollTop - $(".insideBlock").get(i).offsetHeight  ){
                 var numer = $(".insideBlock").get(i).getAttribute("data-time");
                 timeData.innerHTML = numer;
-                localStorage.setItem('timeData', numer);//присвоєння даних до стореджа змінна timeData
+                localStorage.setItem('timeData', numer);
+                localStorage.setItem('timeData2', numer + 1);//присвоєння даних до стореджа змінна timeData
             };
 
+            console.log('localStorage', localStorage);
             console.log('localStorage', localStorage.timeData);//глобальний сторедж між доменними сторінками витягнення даних зі змінної timeData
         };
     };
@@ -348,7 +350,19 @@ var list = [1, 10, 5];
 //var [aqs, ds, dfww] = list;
 //console.log('obgect', aqs, ds, dfww);
 
+//робота з localStorage
+var paigId = 1;
+var testData = {name: "Andriy", data: ["das", 125, "dmin"]};
+function saveToLocalStore(name, data) {
+    var text = JSON.stringify(data);
+    localStorage.setItem(name, text);
+    console.log("done");
+};
 
+function getFromLocalStore(name) {
+   var object = JSON.parse( localStorage[name] );
+   console.log("done", object);
+}
 
 
 
