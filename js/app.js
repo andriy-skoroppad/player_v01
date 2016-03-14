@@ -258,6 +258,8 @@ function myPlayerController($scope, $q, $http, $httpBackend, $timeout){
 };
 
 $(document).ready(function(){
+    window.onblur = function () {document.title='документ неактивен'}
+    window.onfocus = function () {document.title='документ снова активен'}
 
 //------------------------------add dounload file from js----------------------------------------------
     // var text = 'как Записать строку в файл ".txt" с помощью js?';
