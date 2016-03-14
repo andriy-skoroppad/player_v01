@@ -353,16 +353,17 @@ var list = [1, 10, 5];
 //робота з localStorage
 var paigId = 1;
 var testData = {name: "Andriy", data: ["das", 125, "dmin"]};
-function saveToLocalStore(name, data) {
+function saveToLocalStore(name, data) {   //записати дані у змінну (переводиться в строку)
     var text = JSON.stringify(data);
     localStorage.setItem(name, text);
     console.log("done");
 };
 
-function getFromLocalStore(name) {
+function getFromLocalStore(name) {  //дістати дані з браузера за імям дістає строку і в єбєкт переводить
    var object = JSON.parse( localStorage[name] );
    console.log("done", object);
-}
+};
+
 
 
 
