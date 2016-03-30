@@ -367,4 +367,32 @@ function getFromLocalStore(name) {  //дістати дані з браузер�
 
 
 
+var listener = {
+    set : set,
+    go : go,
+    elements : {}
+};
 
+function set(name, fun){
+    if( !listener.elements[name] ){
+        listener.elements[name] = document.createElement( name );
+        console.log('createElement');
+    };
+
+    listener.elements[name].addEventListener('click', fun);
+}
+function go(name){
+    if( !listener.elements[name] ){
+        return false;
+    }
+    listener.elements[name].click();
+    return true;
+}
+
+listener.set('data-my', function(){
+    console.log('data-my');
+});
+listener.set('data-my', function(){
+    console.log('data-my2');
+});
+listener.go('data-my');
