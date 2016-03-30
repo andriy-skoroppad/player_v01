@@ -230,8 +230,12 @@ function set(name, fun){
 
     listener.elements[name].addEventListener('click', fun);
 }
-function  go(name){
+function go(name){
+    if( !listener.elements[name] ){
+        return false;
+    }
     listener.elements[name].click();
+    return true;
 }
 
 listener.set('data-my', function(){
