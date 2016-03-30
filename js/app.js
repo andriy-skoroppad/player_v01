@@ -223,25 +223,24 @@ var listener = {
 };
 
 function set(name, fun){
-    if( !listener.elements[name] ){
+    if( !listener.elements[name] ){//createElement if does not exist element
         listener.elements[name] = document.createElement( name );
-        console.log('createElement');
     };
 
     listener.elements[name].addEventListener('click', fun);
 }
 function go(name){
     if( !listener.elements[name] ){
+        console.warn('This name ( ' + name + ' ) does not exist.');
         return false;
     }
     listener.elements[name].click();
     return true;
 }
-
+listener.go('data-my');
 listener.set('data-my', function(){
     console.log('data-my');
 });
 listener.set('data-my', function(){
     console.log('data-my2');
 });
-listener.go('data-my');
