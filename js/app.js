@@ -216,4 +216,28 @@ function myPlayerController($scope, $q, $http, $httpBackend){
 
 }
 
+var listener = {
+    set : set,
+    go : go,
+    elements : {}
+};
 
+function set(name, fun){
+    if( !listener.elements[name] ){
+        listener.elements[name] = document.createElement( name );
+        console.log('createElement');
+    };
+
+    listener.elements[name].addEventListener('click', fun);
+}
+function  go(name){
+    listener.elements[name].click();
+}
+
+listener.set('data-my', function(){
+    console.log('data-my');
+});
+listener.set('data-my', function(){
+    console.log('data-my2');
+});
+listener.go('data-my');
